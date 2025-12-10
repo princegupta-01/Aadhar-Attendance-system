@@ -1,0 +1,197 @@
+<html>
+<head>
+    <title>Attendance - Adhar Attendance System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="navbar-container">
+            <div class="logo">
+                <i class="fas fa-fingerprint"></i>
+                <span>Adhar Attendance</span>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="attendance.html" class="nav-active">Attendance</a>
+                <a href="reports.html">Reports</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Mark Attendance</h1>
+            <p>Record your attendance securely with biometric verification</p>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="card-grid" style="grid-template-columns: 1fr 1fr;">
+
+                    <div class="card">
+                        <h3><i class="fas fa-user-check text-primary"></i> Attendance Form</h3>
+                        <form id="attendanceForm">
+                            <div class="form-group">
+                                <label for="adharNo">Adhar Number</label>
+                                <input type="text" id="adharNo" name="adharNo" placeholder="xxxx xxxx xxxx 1234" required maxlength="12">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="stuName">Student Name</label>
+                                <input type="text" id="stuName" name="stuName" placeholder="Enter full name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="department">Department</label>
+                                <select id="department" name="department" required>
+                                    <option value="">Select Department</option>
+                                    <option value="IT">IT</option>
+                                    <option value="HR">B-Tech</option>
+                                    <option value="Finance">Farmacy</option>
+                                    <option value="Operations">Agriculture</option>
+                                    <option value="Marketing">Marine</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="attendanceType">Attendance Type</label>
+                                <div style="display: flex; gap: 1rem; margin-top: 0.5rem;">
+                                    <label style="display: flex; align-items: center; margin-bottom: 0;">
+                                        <input type="radio" name="attendanceType" value="Check-In" checked style="width: auto; margin-right: 0.5rem;">
+                                        Check-In
+                                    </label>
+                                    <label style="display: flex; align-items: center; margin-bottom: 0;">
+                                        <input type="radio" name="attendanceType" value="Check-Out" style="width: auto; margin-right: 0.5rem;">
+                                        Check-Out
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="biometric">Biometric Verification</label>
+                                <button type="button" class="btno-btn-secondary" style="width: 100%;" id="biometricBtn">
+                                    <i class="fas fa-fingerprint"></i> Verify Fingerprint
+                                </button>
+                                <input type="hidden" id="biometric" name="biometric" value="">
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">
+                                <i class="fas fa-check-circle"></i> Mark Attendance
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="fas fa-info-circle text-primary"></i> Today's Summary</h3>
+                        <div style="margin-top: 2rem;">
+                            <div style="padding: 1rem; background: #f0f9ff; border-radius: 8px; margin-bottom: 1rem;">
+                                <div style="font-size: 0.9rem; color: #64748b;">Total Check-ins</div>
+                                <div style="font-size: 2rem; font-weight: 800; color: var(--primary-color);" id="totalCheckins">0</div>
+                            </div>
+                            <div style="padding: 1rem; background: #f0fdf4; border-radius: 8px; margin-bottom: 1rem;">
+                                <div style="font-size: 0.9rem; color: #64748b;">Total Check-outs</div>
+                                <div style="font-size: 2rem; font-weight: 800; color: var(--success-color);" id="totalCheckouts">0</div>
+                            </div>
+                            <div style="padding: 1rem; background: #fffbeb; border-radius: 8px;">
+                                <div style="font-size: 0.9rem; color: #64748b;">Current Time</div>
+                                <div style="font-size: 1.5rem; font-weight: 700; color: var(--dark-text);" id="currentTime">--:--:--</div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 2rem; padding: 1rem; background: #f8fafc; border-radius: 8px; border-left: 4px solid var(--secondary-color);">
+                            <p style="margin: 0; font-size: 0.9rem; color: #64748b;">
+                                <strong>Note:</strong> Biometric verification is required for all attendance records. Make sure your fingerprint is registered in the system.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Today's Attendance Records</h2>
+                <div class="card">
+                    <table id="attendanceTable">
+                        <thead>
+                            <tr>
+                                <th>Student Name</th>
+                                <th>Adhar (Last 4)</th>
+                                <th>Department</th>
+                                <th>Type</th>
+                                <th>Time</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                        </tbody>
+                    </table>
+                    <p id="emptyMessage" style="text-align: center; color: #64748b; padding: 2rem;">No records yet. Start marking attendance!</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Guidelines</h2>
+            <p class="section-subtitle">Follow these guidelines for smooth attendance marking</p>
+            <div class="card-grid">
+                <div class="card">
+                    <h3><i class="fas fa-clock text-primary"></i> Check-in Timing</h3>
+                    <p>Check-in between 8:00 AM - 8:40 AM for regular working hours. Late entries will be flagged in reports.</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-hand-holding-hand text-primary"></i> Biometric Quality</h3>
+                    <p>Ensure clean and dry fingers for accurate fingerprint scanning. Poor quality scans may result in verification failure.</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-mobile-alt text-primary"></i> Device Requirements</h3>
+                    <p>Use authorized devices with biometric readers. Unauthorized terminals will not record valid attendance marks.</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-comments text-primary"></i> Issues & Support</h3>
+                    <p>For biometric registration issues, contact the HR department. Technical support is available 24/7.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About Us</h4>
+                <p>Adhar Attendance System is a leading provider of biometric-based attendance management solutions designed for modern organizations.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="attendance.html">Attendance</a></li>
+                    <li><a href="reports.html">Reports</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <p><strong>Email:</strong> guni158@adharandattendance.com</p>
+                <p><strong>Phone:</strong> +91-1234-567-897</p>
+                <p><strong>Address:</strong> Mahesana kherwa, Gujrat, India</p>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <p>
+                    <a href="#" style="margin-right: 1rem;"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" style="margin-right: 1rem;"><i class="fab fa-twitter"></i></a>
+                    <a href="#" style="margin-right: 1rem;"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Adhar Attendance System. All rights reserved.</p>
+            <p style="font-size: 0.9rem;">Designed & Developed with <i class="fas fa-heart" style="color: var(--accent-color);"></i> by my Team</p>
+        </div>
+    </footer>
+</body>
+</html>

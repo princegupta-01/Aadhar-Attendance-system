@@ -1,0 +1,249 @@
+<html>
+<head>
+    <title>Reports - Adhar Attendance System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="navbar-container">
+            <div class="logo">
+                <i class="fas fa-fingerprint"></i>
+                <span>Adhar Attendance</span>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="attendance.html">Attendance</a>
+                <a href="reports.html" class="nav-active">Reports</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Attendance Reports</h1>
+            <p>Generate comprehensive attendance analytics and insights</p>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="card">
+                    <h3><i class="fas fa-filter text-primary"></i> Report Filters</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="filterDept">Department</label>
+                            <select id="filterDept">
+                                <option value="">All Departments</option>
+                                <option value="IT">IT</option>
+                                <option value="HR">B-Tech</option>
+                                <option value="Finance">Agriculture</option>
+                                <option value="Operations">Farmacy</option>
+                                <option value="Marketing">Marine</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="filterMonth">Month</label>
+                            <select id="filterMonth">
+                                <option value="">Select Month</option>
+                                <option value="01">January</option>
+                                <option value="02">February</option>
+                                <option value="03">March</option>
+                                <option value="04">April</option>
+                                <option value="05">May</option>
+                                <option value="06">June</option>
+                                <option value="07">July</option>
+                                <option value="08">August</option>
+                                <option value="09">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="filterYear">Year</label>
+                            <select id="filterYear">
+                                <option value="2025" selected>2025</option>
+                                <option value="2024">2024</option>
+                                <option value="2023">2023</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>&nbsp;</label>
+                            <button type="button" class="btn btn-primary" id="generateReportBtn" style="width: 100%;">
+                                <i class="fas fa-chart-bar"></i> Generate Report
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Key Statistics</h2>
+                <div class="stats">
+                    <div class="stat-box">
+                        <div class="stat-number" id="totalPresent">0</div>
+                        <div class="stat-label">Present</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number" id="totalAbsent">0</div>
+                        <div class="stat-label">Absent</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number" id="totalLeave">0</div>
+                        <div class="stat-label">On Leave</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number" id="attendancePercentage">0%</div>
+                        <div class="stat-label">Attendance Rate</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="card">
+                    <h3><i class="fas fa-table text-primary"></i> Attendance Summary</h3>
+                    <table id="reportTable">
+                        <thead>
+                            <tr>
+                                <th>Student Name</th>
+                                <th>Department</th>
+                                <th>Present</th>
+                                <th>Absent</th>
+                                <th>Leave</th>
+                                <th>Total Days</th>
+                                <th>Percentage</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reportTableBody">
+                        </tbody>
+                    </table>
+                    <p id="emptyReportMessage" style="text-align: center; color: #64748b; padding: 2rem;">Select filters and generate report to view data</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="card">
+                    <h3><i class="fas fa-download text-primary"></i> Export Report</h3>
+                    <p style="color: #64748b; margin-bottom: 1.5rem;">Download the report in your preferred format</p>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <button class="btn btn-primary" id="exportPdfBtn">
+                            <i class="fas fa-file-pdf"></i> Export as PDF
+                        </button>
+                        <button class="btn btn-primary" id="exportExcelBtn">
+                            <i class="fas fa-file-excel"></i> Export as Excel
+                        </button>
+                        <button class="btn btn-primary" id="printReportBtn">
+                            <i class="fas fa-print"></i> Print Report
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Visual Analytics</h2>
+            <p class="section-subtitle">Department-wise and Status-wise attendance distribution</p>
+            <div class="card-grid" style="grid-template-columns: 1fr 1fr;">
+                <div class="card">
+                    <h3><i class="fas fa-chart-pie text-primary"></i> Attendance Status</h3>
+                    <div id="statusChart" style="height: 300px; display: flex; align-items: center; justify-content: center;">
+                        <div style="text-align: center; color: #64748b;">
+                            <i class="fas fa-chart-pie" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.5;"></i>
+                            <p>Chart visualization (SVG-based)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-chart-bar text-primary"></i> Department Comparison</h3>
+                    <div id="deptChart" style="height: 300px; display: flex; align-items: center; justify-content: center;">
+                        <div style="text-align: center; color: #64748b;">
+                            <i class="fas fa-chart-bar" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.5;"></i>
+                            <p>Chart visualization (SVG-based)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Performance Insights</h2>
+            <p class="section-subtitle">Key findings and recommendations</p>
+            <div class="card-grid">
+                <div class="card">
+                    <h3><i class="fas fa-star text-primary"></i> Highest Attendance</h3>
+                    <p id="highestAttendance" style="margin: 1rem 0; color: var(--success-color); font-weight: 600;">
+                        Loading...
+                    </p>
+                    <p style="color: #64748b; font-size: 0.95rem;">Student with the best attendance record this period</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-warning text-primary"></i> Needs Attention</h3>
+                    <p id="lowAttendance" style="margin: 1rem 0; color: var(--warning-color); font-weight: 600;">
+                        Loading...
+                    </p>
+                    <p style="color: #64748b; font-size: 0.95rem;">Student with attendance below college threshold</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-trending-up text-primary"></i> Department Leader</h3>
+                    <p id="deptLeader" style="margin: 1rem 0; color: var(--primary-color); font-weight: 600;">
+                        Loading...
+                    </p>
+                    <p style="color: #64748b; font-size: 0.95rem;">Department with best overall attendance percentage</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-lightbulb text-primary"></i> Recommendation</h3>
+                    <p id="recommendation" style="margin: 1rem 0; color: #64748b;">
+                        Loading...
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About Us</h4>
+                <p>Adhar Attendance System is a leading provider of biometric-based attendance management solutions designed for modern organizations.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="attendance.html">Attendance</a></li>
+                    <li><a href="reports.html">Reports</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <p><strong>Email:</strong> guni158@gmail.com</p>
+                <p><strong>Phone:</strong> +91-1234-567-897</p>
+                <p><strong>Address:</strong> Mahesana kherwa, Gujrat, India</p>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <p>
+                    <a href="#" style="margin-right: 1rem;"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" style="margin-right: 1rem;"><i class="fab fa-twitter"></i></a>
+                    <a href="#" style="margin-right: 1rem;"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Adhar Attendance System. All rights reserved.</p>
+            <p style="font-size: 0.9rem;">Designed & Developed with <i class="fas fa-heart" style="color: var(--accent-color);"></i> by Tech Team</p>
+        </div>
+    </footer>
+</body>
+</html>

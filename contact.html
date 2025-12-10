@@ -1,0 +1,319 @@
+<html>
+<head>
+    <title>Contact Us - Adhar Attendance System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="navbar-container">
+            <div class="logo">
+                <i class="fas fa-fingerprint"></i>
+                <span>Adhar Attendance</span>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="attendance.html">Attendance</a>
+                <a href="reports.html">Reports</a>
+                <a href="about.html">About</a>
+                <a href="contact.html" class="nav-active">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Get in Touch</h1>
+            <p>We're here to help and answer any question you might have</p>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Contact Information</h2>
+            <p class="section-subtitle">Reach out to us through any of these options</p>
+            <div class="card-grid">
+                <div class="card">
+                    <div style="text-align: center; margin-bottom: 1.5rem;">
+                        <div style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem;">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Main Office</h3>
+                    </div>
+                    <p style="text-align: center; color: #64748b;">
+                        Ganpat university,Main<br>
+                        Mahesana, kherwa<br>
+                        India - 384012
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div style="text-align: center; margin-bottom: 1.5rem;">
+                        <div style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem;">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3>Phone</h3>
+                    </div>
+                    <p style="text-align: center; color: #64748b;">
+                        <strong>Toll Free:</strong><br>
+                        1800-4589-00<br>
+                        <strong>Direct:</strong><br>
+                        +91-4857985485
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div style="text-align: center; margin-bottom: 1.5rem;">
+                        <div style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem;">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email</h3>
+                    </div>
+                    <p style="text-align: center; color: #64748b;">
+                        <strong>General:</strong><br>
+                        Ganpatuniversity@gmail.com<br>
+                        <strong>Support:</strong><br>
+                        guni158@gmail.com
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div style="text-align: center; margin-bottom: 1.5rem;">
+                        <div style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem;">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Business Hours</h3>
+                    </div>
+                    <p style="text-align: center; color: #64748b;">
+                        <strong>Monday - Friday</strong><br>
+                        9:00 AM - 3:00 PM IST<br>
+                        <strong>Saturday</strong><br>
+                        10:00 AM - 2:00 PM IST
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Send us a Message</h2>
+                <p class="section-subtitle">We'll get back to you within 24 hours</p>
+                
+                <div class="card-grid" style="grid-template-columns: 1fr 1fr;">
+                    <div class="card">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="contactName">Full Name *</label>
+                                <input type="text" id="contactName" name="name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contactEmail">Email Address *</label>
+                                <input type="email" id="contactEmail" name="email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contactPhone">Phone Number</label>
+                                <input type="tel" id="contactPhone" name="phone">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contactSubject">Subject *</label>
+                                <select id="contactSubject" name="subject" required>
+                                    <option value="">Select a subject</option>
+                                    <option value="General Inquiry">General Inquiry</option>
+                                    <option value="Technical Support">Technical Support</option>
+                                    <option value="Information">College Information</option>
+                                    <option value="Support">Professors Support </option>
+                                    <option value="Feedback">Feedback</option>
+                                    <option value="Complaint">Complaint</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contactMessage">Message *</label>
+                                <textarea id="contactMessage" name="message" required></textarea>
+                            </div>
+
+                            <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+                                <input type="checkbox" id="termsAccept" name="terms" required style="width: auto; margin-right: 0.5rem;">
+                                <label for="termsAccept" style="margin-bottom: 0;">
+                                    I agree to the privacy policy and terms of service
+                                </label>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">
+                                <i class="fas fa-paper-plane"></i> Send Message
+                            </button>
+                        </form>
+                        <div id="contactMessage" style="margin-top: 1rem; display: none; padding: 1rem; border-radius: 8px;"></div>
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="fas fa-question-circle text-primary"></i> Frequently Asked Questions</h3>
+                        <div style="margin-top: 1.5rem;">
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: var(--primary-color); margin-bottom: 0.5rem; cursor: pointer;" class="faq-question">
+                                    <i class="fas fa-plus-circle"></i> How do I register?
+                                </h4>
+                                <p class="faq-answer" style="display: none; color: #64748b; margin-top: 0.5rem;">
+                                    Visit our website and click on "Get Started Now" button. Follow the registration form with your organization details and preferred plan.
+                                </p>
+                            </div>
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: var(--primary-color); margin-bottom: 0.5rem; cursor: pointer;" class="faq-question">
+                                    <i class="fas fa-plus-circle"></i> Is my data secure?
+                                </h4>
+                                <p class="faq-answer" style="display: none; color: #64748b; margin-top: 0.5rem;">
+                                    Yes, we use AES-256 encryption and comply with ISO 27001 and GDPR standards. Your biometric data is never stored in plain text.
+                                </p>
+                            </div>
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: var(--primary-color); margin-bottom: 0.5rem; cursor: pointer;" class="faq-question">
+                                    <i class="fas fa-plus-circle"></i> What's your Education Policy?
+                                </h4>
+                                <p class="faq-answer" style="display: none; color: #64748b; margin-top: 0.5rem;">
+                                    We offer Education 30% scholarship to Students who  scored 80% in Semester Exams.
+                                </p>
+                            </div>
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: var(--primary-color); margin-bottom: 0.5rem; cursor: pointer;" class="faq-question">
+                                    <i class="fas fa-plus-circle"></i> Do you provide training?
+                                </h4>
+                                <p class="faq-answer" style="display: none; color: #64748b; margin-top: 0.5rem;">
+                                    Yes, we provide comprehensive training, documentation, and 24/7 Professors support for all Students.
+                                </p>
+                            </div>
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: var(--primary-color); margin-bottom: 0.5rem; cursor: pointer;" class="faq-question">
+                                    <i class="fas fa-plus-circle"></i> Can I integrate with my existing system?
+                                </h4>
+                                <p class="faq-answer" style="display: none; color: #64748b; margin-top: 0.5rem;">
+                                    Absolutely! We provide documentation and support for seamless integration with your existing systems.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Our Offices</h2>
+            <p class="section-subtitle">Visit us at any of our regional offices</p>
+            <div class="card-grid">
+                <div class="card">
+                    <h3><i class="fas fa-city text-primary"></i> Gujrat Office</h3>
+                    <p>
+                        <strong>Address:</strong><br>
+                        Ganpat University, Main Building<br>
+                        Mahesana, kherwa<br>
+                        Gujarat-384012
+                    </p>
+                    <p style="margin-top: 1rem;">
+                        <strong>Phone:</strong> +91-84598547548<br>
+                        <strong>Email:</strong> guni158@gmail.com
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fas fa-city text-primary"></i> Goa Office</h3>
+                    <p>
+                        <strong>Address:</strong><br>
+                        Corporate Tower, 22nd Floor<br>
+                        panama street, panaji<br>
+                        Goa-403001
+                    </p>
+                    <p style="margin-top: 1rem;">
+                        <strong>Phone:</strong> +91-22-4567890<br>
+                        <strong>Email:</strong> guni458@gmail.com
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fas fa-city text-primary"></i> Mahesana Office</h3>
+                    <p>
+                        <strong>Address:</strong><br>
+                        Road side Building-5<br>
+                        Whitefield, Mahesna<br>
+                        Gujrat-384002
+                    </p>
+                    <p style="margin-top: 1rem;">
+                        <strong>Phone:</strong> +91-80-4567890<br>
+                        <strong>Email:</strong> mahesana@adharandattendance.com
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fas fa-city text-primary"></i> Lucknow Office</h3>
+                    <p>
+                        <strong>Address:</strong><br>
+                        Innovation Park, Block A<br>
+                        Hitech City, Lucknow<br>
+                        Uttar pradesh 226021
+                    </p>
+                    <p style="margin-top: 1rem;">
+                        <strong>Phone:</strong> +91-40-4567890<br>
+                        <strong>Email:</strong> lucknow@adharandattendance.com
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background: linear-gradient(135deg, #1e40af 0%, #0f766e 100%); border-radius: 15px; color: white; padding: 3rem 2rem; text-align: center;">
+            <h2 style="font-size: 2rem; margin-bottom: 1rem;">Subscribe to Our Newsletter</h2>
+            <p style="margin-bottom: 2rem; opacity: 0.95;">Get the latest updates, features, and industry insights delivered to your inbox</p>
+            <form style="display: flex; gap: 0.5rem; max-width: 500px; margin: 0 auto; flex-wrap: wrap;">
+                <input type="email" placeholder="Enter your email" required style="flex: 1; min-width: 200px; padding: 0.85rem; border: none; border-radius: 8px; font-size: 1rem;">
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About Us</h4>
+                <p>Adhar Attendance System is a leading provider of biometric-based attendance management solutions designed for modern organizations.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="attendance.html">Attendance</a></li>
+                    <li><a href="reports.html">Reports</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                    <li><a href="#">Disclaimer</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <p style="margin-bottom: 1rem;">
+                    <a href="#" style="margin-right: 1rem; font-size: 1.3rem;"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" style="margin-right: 1rem; font-size: 1.3rem;"><i class="fab fa-twitter"></i></a>
+                    <a href="#" style="margin-right: 1rem; font-size: 1.3rem;"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" style="margin-right: 1rem; font-size: 1.3rem;"><i class="fab fa-instagram"></i></a>
+                    <a href="#" style="font-size: 1.3rem;"><i class="fab fa-youtube"></i></a>
+                </p>
+                <p style="font-size: 0.9rem; margin-top: 1rem;">
+                    Join our community of 15,00+ users
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Adhar Attendance System. All rights reserved.</p>
+            <p style="font-size: 0.9rem;">Designed & Developed with <i class="fas fa-heart" style="color: var(--accent-color);"></i> Tech Team | <a href="#" style="color: inherit;">Privacy</a> | <a href="#" style="color: inherit;">Terms</a></p>
+        </div>
+    </footer>
+</body>
+</html>
